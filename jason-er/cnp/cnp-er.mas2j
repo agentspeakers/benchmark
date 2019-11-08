@@ -1,0 +1,10 @@
+// JasonER version
+
+MAS cnp {
+
+    agents:
+        c_alt;     // the CNP initiator
+        p #10;  // the participants (3) that offer a service
+        pr;    // a participant that always refuses
+        //pn;    // a participant that does not answer
+}
