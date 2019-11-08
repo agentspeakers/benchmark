@@ -341,14 +341,6 @@
 69,3.199
 69,2.821
 69,3.268
-69,[Include] The included file 'n.asl' was not found! (it is being included in the agent 'c_alt')
-[c_alt] No fail event was generated for +!run[source(self)]
-[c_alt] Found a goal for which there is no applicable plan: +!run[source(self)]
-0.524
-69,[Include] The included file 'n.asl' was not found! (it is being included in the agent 'c_alt')
-[c_alt] No fail event was generated for +!run[source(self)]
-[c_alt] Found a goal for which there is no applicable plan: +!run[source(self)]
-0.603
 70,3.271
 70,2.858
 70,3.198
