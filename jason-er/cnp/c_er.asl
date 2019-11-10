@@ -17,17 +17,17 @@ all_proposals_received(CNPId, NP)                // NP: number of participants
 /* Plans */
 +!run : n(N)
    <- //.print("starting ",N," CNPs");
-      .wait(1000);  // wait participants introduction
+      .wait(500);  // wait participants introduction
       for ( .range(I,1,N)) {
         !!cnp(I ,fix(computer));
       }
    .
 
-+jag_sleeping : not .intend(run) & not .intend(cnp(_,_))
++jag_sleeping : n(N) & .count( done(_), N )
    <- .stopMAS.
 
 +!cnp(Id,Task) {
-    <- !call(LP); !bids(LP); !winner(LO,W); !result(LO,W); -done(Id).
+    <- !call(LP); !bids(LP); !winner(LO,W); !result(LO,W).
 
     +!call(LP)
        <- .df_search("participant",LP);
@@ -43,7 +43,7 @@ all_proposals_received(CNPId, NP)                // NP: number of participants
         : .findall(offer(O,A),propose(Id,O)[source(A)],LO) & LO \== []
        <- //.print("Offers are for ",Task," are ",LO);
           .min(LO,offer(WOf,WAg)); // sort offers, the first is the best
-          //.print("Winner for ",Id," is ",WAg," with ",WOf)
+          //.print("Winner for ",Id," is ",WAg," with ",WOf);
       .
     +!winner([],nowinner)
        <- .print("CNP ",Id," with no offer!").

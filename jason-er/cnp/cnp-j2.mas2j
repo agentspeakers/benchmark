@@ -1,9 +1,9 @@
-// JasonER version
+// Jason  (without .wait(<expression>))
 
 MAS cnp {
 
     agents:
-        c_er;    // the CNP initiator
+        c_j2;    // the CNP initiator
         p #10;   // the participants that offer a service
         pr;      // a participant that always refuses
         //pn;    // a participant that does not answer
