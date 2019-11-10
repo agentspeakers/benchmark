@@ -8,6 +8,6 @@ set term pdfcairo
 set output "jason-er-time.pdf"
 plot "data-er.csv" title "JasonER"  smooth sbezier,\
      "data-j.csv"  title "Jason"    smooth sbezier,\
-     "data-j2.csv" title "Jason-without-wait" smooth sbezier,\
+     "data-er2.csv" title "JasonER-with-done" smooth sbezier
 
 # smooth option sbezier csplines

@@ -27,16 +27,16 @@ all_proposals_received(CNPId, NP)                // NP: number of participants
    <- .stopMAS.
 
 +!cnp(Id,Task) {
-    <- !call(LP); !bids(LP); !winner(LO,W); !result(LO,W).
+    <- !call(LP); !bids(LP); !winner(LO,W); !result(LO,W); +done(Id).
 
     +!call(LP)
        <- .df_search("participant",LP);
           .send(LP,tell,cfp(Id,Task)).
 
-    +!bids(LP) : NP = .length(LP) <: done(Id) {
-       <- .wait(4000); +done(Id).
-       +propose(Id,_) : all_proposals_received(Id, NP) <- +done(Id).
-       +refuse(Id)    : all_proposals_received(Id, NP) <- +done(Id).
+    +!bids(LP) : NP = .length(LP) <: false {
+       <- .wait(4000); .done.
+       +propose(Id,_) : all_proposals_received(Id, NP) <- .done.
+       +refuse(Id)    : all_proposals_received(Id, NP) <- .done.
     }
 
     +!winner(LO,WAg)
