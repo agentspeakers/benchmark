@@ -27,7 +27,11 @@ all_proposals_received(CNPId, NP)                // NP: number of participants
    <- .stopMAS.
 
 +!cnp(Id,Task) {
-    <- !call(LP); !bids(LP); !winner(LO,W); !result(LO,W); +done(Id).
+    <- !call(LP);
+       !bids(LP);
+       !winner(LO,W);
+       !result(LO,W);
+       +done(Id).
 
     +!call(LP)
        <- .df_search("participant",LP);

@@ -1,10 +1,10 @@
-// Jason  (without .wait(<expression>))
+// Jason
 
 MAS cnp {
 
     agents:
-        c_j2;    // the CNP initiator
-        p #10;   // the participants that offer a service
-        pr;      // a participant that always refuses
+        c_j2;     // the CNP initiator
+        p #10;  // the participants that offer a service
+        pr;    // a participant that always refuses
         //pn;    // a participant that does not answer
 }

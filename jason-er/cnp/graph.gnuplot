@@ -7,7 +7,14 @@ set key top left
 set term pdfcairo
 set output "jason-er-time.pdf"
 plot "data-er.csv" title "JasonER"  smooth sbezier,\
-     "data-j.csv"  title "Jason"    smooth sbezier,\
-     "data-er2.csv" title "JasonER-with-done" smooth sbezier
+     "data-j1.csv" title "Jason1"   smooth sbezier,\
+     "data-j2.csv" title "Jason2"   smooth sbezier
 
+# smooth sbezier
 # smooth option sbezier csplines
+
+set term pngcairo
+set output "jason-er-time.png"
+plot "data-er.csv" title "JasonER"  smooth sbezier,\
+     "data-j1.csv" title "Jason1"   smooth sbezier,\
+     "data-j2.csv" title "Jason2"   smooth sbezier
