@@ -29,13 +29,13 @@ all_proposals_received(CNPId, NP)                // NP: number of participants
 // start the CNP
 +!cnp(Id,Task)
   <- !call(Id,Task,LP);
-     !bid(Id,LP).
+     !bid(Id).
 +!call(Id,Task,LP)
   <- .df_search("participant",LP);
      //.print("Sending CFP to ",LP);
      +nb_participants(Id,.length(LP));
      .send(LP,tell,cfp(Id,Task)).
-+!bid(Id,LP) // the deadline of the CNP is now + 4 seconds (or all proposals received)
++!bid(Id) // the deadline of the CNP is now + 4 seconds (or all proposals received)
   <- .at("now +4 seconds", { +!contract(Id) }).
 
 // if all proposal have been received, don't wait for the deadline
