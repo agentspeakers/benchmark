@@ -15,16 +15,16 @@ It is expected a minimal overhead against Jason due to goal condition (GC). Thes
 
 ## Method
 
-We vary `N` (number of concurrent CNPs) from 1 to 150 and repeat several times to collect enough data.
-
-Three MAS application are considered and compared.
+Three MAS application are considered and compared:
 - JasonER: the initiator of CNP uses JasonER features (sub-plans, goal condition, ...)
 - Jason1: the initiator of CNP uses Jason1 features (events)
 - Jason2: the initiator of CNP uses Jason2 features (`.wait(<expression>)`)
 
 Each MAS has 1 initiator and 11 participants.
 
-## Result
+We vary `N` (number of concurrent CNPs) from 1 to 150 and repeat several times to collect enough data.
+
+## Results
 
 The results are:
 
@@ -42,8 +42,8 @@ Jason1 is slow because, while sending the CFP, the `+propose/refuse` plans are r
 Jason2 is slow because of `.wait(<expression>)` that needs to check the expression every event. It does so, however, only after all CFP are sent.
 
 JasonER is faster because:
-- `+propose/refuse``+propose/refuse` plans are relevant only when pursuing `bid`, so after all CFP have being sent.
-- does not uses `.wait(<expression>)`.
+- `+propose/refuse` plans are relevant only when pursuing `bid` goal, so after all CFP have being sent.
+- does not use `.wait(<expression>)`.
 - although goal-conditions have to be checked every reasoning cycle, it is done  only while pursuing the `bid` goal (as .wait does in Jason2), the test is fast (a simple `false`).
 - the plan library considered for looking for relevant plans for `+propose/refuse` events is smaller given the scope of the sub-plans.
 
